@@ -1,3 +1,7 @@
+# Método Hierárquico Aglomerativo
+
+O primeiro passo é a análise das variáveis para avaliação da padronização das variáveis por zscore (média 0 e desvio padrão 1)
+
 # Medidas de Dissimilaridade
 - Identifica a Distância entre as observações.
 
@@ -47,3 +51,35 @@
 
 *Exemplo de como funciona aglomeração com o avarage linkage:*
 ![alt text](png/image-10.png)
+
+## Análise dos agrupamentos
+
+- Avaliar quais variáveis foram relevantes para formação dos clusters;
+- Após a clusterização, analisar se a variabilidade dentro do grupo é menor do que a variabilidade entre os grupos levando em conta as variáveis utilizadas;
+- Analisar a variância através do teste F. F = Variabilidade entre Grupos / Variabilidade dentro dos Grupos
+
+![alt text](png/image-12.png)
+
+- É possível analisar quais variáveis mais contribuíram para a formação de pelo menos umdosclusters: maiores valores da estatística F (em conjunto com a significância).
+
+# Método Não Hierárquico K-Means
+
+Assim como no método hierárquico, o primeiro passo é analisar os dados para avaliar a necessidade de padronização dos dados por zscore (média 0 e desvio padrão 1), para que os dados fiquem mais concentrados.
+
+No método não hierárquico a quantidade de Clusters é definida já no inicio do processo, motivo pelo qual se usa o Elbow Method ou até mesmo utilizar o método hierárquico num primeiro momento para definir a quantidade de clusters ideal e partir desta pré análise para definir o número de clusters.
+
+Nas etapas seguintes, as observações vão sendo comparadas pela proximidade aos centroides dos outros clusters. Se houver realocação a outro cluster por estar mais próxima, os centroides são recalculados (em ambos os clusters).
+
+*Trata-se de um processo Iterativo*
+
+O procedimento K-means encerra-se quando não for possível realocar qualquer observação por estar mais próxima do centroide de outro cluster: indica que a soma dos quadrados de cada observação até o centro do cluster (o mi "u" na fórmula) alocada foi minimizada.
+
+![alt text](png/image-11.png)
+
+**Identificação da quantidade de clusters**
+
+*``Método Elbow`` para identificação do nº de clusters*
+- Elaborado com base na *``WCSS (Within-Cluster Sum of Squares)``*: distância de cada observação para o centroide de seu cluster
+- Quanto mais próximos entre si e do centroide, menores as distâncias internas
+- Normalmente, busca-se o "cotovelo", ou seja, o ponto onde a curva "dobra"
+
