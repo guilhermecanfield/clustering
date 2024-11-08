@@ -83,3 +83,10 @@ O procedimento K-means encerra-se quando não for possível realocar qualquer ob
 - Quanto mais próximos entre si e do centroide, menores as distâncias internas
 - Normalmente, busca-se o "cotovelo", ou seja, o ponto onde a curva "dobra"
 
+*``Método da Silhueta`` para identificação do nº de clusters*
+- b = A distância média entre a observação e as observações do cluster mais próximo do qual este ponto não está alocado.
+- a = A distância média das observações dentro do cluster
+
+![alt text](png/image-13.png)
+
+Por fim, calcula-se o coeficiente médio da silhueta para todas as observações. O procedimento é realizado para vários números de k diferentes, similar ao que se faz no método de elbow, para encontrar o número de clusters ideal.
